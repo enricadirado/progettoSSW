@@ -1,7 +1,9 @@
-<h1>Gestione biblioteca</h1>
-<button>Ricerca</button>
-<br>
-<br>
-<button>Inserisci</button>
-<app-inserimento></app-inserimento>
-<app-ricerca></app-ricerca>
+<div>
+  <h1>Gestione biblioteca</h1>
+  <button (click)="changeWindow(ricerca)">Ricerca</button>
+  <br>
+  <br>
+  <button (click)="changeWindow(inserimento)">Inserisci</button>
+  <app-inserimento *ngIf='window==="inserimento"'></app-inserimento>
+  <app-ricerca></app-ricerca>
+</div>

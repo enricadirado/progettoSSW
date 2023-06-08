@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { InserimentoComponent } from './inserimento/inserimento.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
@@ -7,9 +8,16 @@ import { RicercaComponent } from './ricerca/ricerca.component';
   templateUrl: './root.component.html',
   styleUrls: ['./root.component.css'],
   standalone: true,
-  imports: [InserimentoComponent, RicercaComponent],
+  imports: [InserimentoComponent, RicercaComponent, CommonModule],
 })
 export class RootComponent implements OnInit {
+
+  window:string= 'home';
+
+  changeWindow(wind:string){
+    this.window= wind;
+  }
+  
   constructor() {}
 
   ngOnInit() {}
