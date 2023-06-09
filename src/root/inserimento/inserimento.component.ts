@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class InserimentoComponent implements OnInit {
-  @Output() newCityEvent = new EventEmitter<string>();
+  
   window: string = "inserimento";
   constructor() { }
 
