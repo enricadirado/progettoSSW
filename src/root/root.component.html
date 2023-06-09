@@ -3,7 +3,7 @@
   <button>Ricerca</button>
   <br>
   <br>
-  <button (click)="window()">Inserisci</button>
+  <button (click)="changeWindow($event)">Inserisci</button>
   <app-inserimento (windowEvent)="changeWindow($event)"></app-inserimento>
   <app-ricerca></app-ricerca>
 </div>
