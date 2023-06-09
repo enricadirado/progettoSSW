@@ -1,5 +1,5 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './inserimento.component.html',
   styleUrls: ['./inserimento.component.css'],
   standalone:true,
-  
+  imports: [CommonModule]
 })
 export class InserimentoComponent implements OnInit {
-  
-  window: string = "inserimento";
+  @Output() windowEvent = new EventEmitter<string>();
+  window_str: string = "inserimento";
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  window(){
+    this.windowEvent.emit(this.window_str);
   }
-
 }

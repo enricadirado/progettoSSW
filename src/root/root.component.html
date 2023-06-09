@@ -3,8 +3,8 @@
   <button>Ricerca</button>
   <br>
   <br>
-  <button>Inserisci</button>
-  <app-inserimento></app-inserimento>
+  <button (click)="window()">Inserisci</button>
+  <app-inserimento (windowEvent)="changeWindow($event)"></app-inserimento>
   <app-ricerca></app-ricerca>
 </div>
 
@@ -20,4 +20,15 @@
   <app-ricerca></app-ricerca>
 </div>
 
+-->
+
+<!--
+<app-newcity (newCityEvent)="addCity($event)"> </app-newcity>
+<app-inserimento (windowEvent)="changeWindow($event)"></app-inserimento>
+-->
+
+<!--
+<p>
+  <input id="nuovo" (keyup.enter)="newCity()" />
+</p>
 -->

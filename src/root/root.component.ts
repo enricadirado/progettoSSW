@@ -22,3 +22,10 @@ export class RootComponent implements OnInit {
 
   ngOnInit() {}
 }
+
+
+/*
+addCity(newCity: string) {
+    this.cities.push(newCity);
+  }
+*/
