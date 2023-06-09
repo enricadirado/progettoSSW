@@ -14,11 +14,13 @@ export class RootComponent implements OnInit {
   title: string ="Gestione biblioteca - Home";
   view: string= 'home';
   seleziona(name: string) {
-    this.selezionata = name;
+    this.selezione = name;
   }
   
-  selezionata: string|undefined;
-  
+  selezione: string|undefined;
+  clean() {
+    this.selezione = undefined;
+  }
   constructor() {}
 
   ngOnInit() {}
@@ -30,6 +32,6 @@ quando clicco su button
 - si triggera il metodo "seleziona" (su root ts)
 - "seleziona" prende view (su root ts)
 - entra in root ts
-- "seleziona" assegna alla var "selezionata" un nome: in input era view, ovvero home
-- "selezionata" è su root html e viene mostrato
+- "seleziona" assegna alla var "selezione" un nome: in input era view, ovvero home
+- "selezione" è su root html e viene mostrato
 */

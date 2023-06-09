@@ -6,7 +6,9 @@
   <button (click)="seleziona(view)">Inserisci</button>
   <app-inserimento></app-inserimento>
   <app-ricerca ></app-ricerca>
-  <p>{{ selezionata }}</p>
+  <p *ngIf = "selezione !== undefined">{{ selezione }}
+    <button (click) = 'clean()'>Chiudi</button>
+  </p>
 </div>
 
 <!--
