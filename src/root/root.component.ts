@@ -18,9 +18,7 @@ export class RootComponent implements OnInit {
   }
   
   selezione: string|undefined;
-  clean() {
-    this.selezione = undefined;
-  }
+  
   constructor() {}
 
   ngOnInit() {}

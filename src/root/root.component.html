@@ -4,11 +4,9 @@
   <br>
   <br>
   <button (click)="seleziona(view)">Inserisci</button>
-  <app-inserimento></app-inserimento>
+  <app-inserimento [selezione]="selezione"></app-inserimento>
   <app-ricerca ></app-ricerca>
-  <p *ngIf = "selezione !== undefined">{{ selezione }}
-    <button (click) = 'clean()'>Chiudi</button>
-  </p>
+  
 </div>
 
 <!--
