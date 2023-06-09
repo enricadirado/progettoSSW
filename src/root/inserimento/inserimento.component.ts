@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
@@ -10,11 +10,9 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 export class InserimentoComponent implements OnInit {
-  @Output() windowEvent = new EventEmitter<string>();
-  window_str: string = "inserimento";
+  
   constructor() { }
   ngOnInit() {}
-  window(){
-    this.windowEvent.emit(this.window_str);
-  }
+ 
 }
+

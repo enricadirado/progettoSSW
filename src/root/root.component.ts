@@ -11,12 +11,13 @@ import { RicercaComponent } from './ricerca/ricerca.component';
   imports: [InserimentoComponent, RicercaComponent, CommonModule],
 })
 export class RootComponent implements OnInit {
-
-  window:string= 'home';
-
-  changeWindow(wind:string){
-    this.window= wind;
+  title: string ="Gestione biblioteca - Home";
+  view: string= 'home';
+  seleziona(name: string) {
+    this.selezionata = name;
   }
+  
+  selezionata: string|undefined;
   
   constructor() {}
 
@@ -25,7 +26,10 @@ export class RootComponent implements OnInit {
 
 
 /*
-addCity(newCity: string) {
-    this.cities.push(newCity);
-  }
+quando clicco su button 
+- si triggera il metodo "seleziona" (su root ts)
+- "seleziona" prende view (su root ts)
+- entra in root ts
+- "seleziona" assegna alla var "selezionata" un nome: in input era view, ovvero home
+- "selezionata" è su root html e viene mostrato
 */

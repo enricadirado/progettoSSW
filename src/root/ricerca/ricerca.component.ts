@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RicercaComponent implements OnInit {
 
+  view: string = 'research';
+
   constructor() { }
 
   ngOnInit() {

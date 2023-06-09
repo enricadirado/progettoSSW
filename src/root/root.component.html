@@ -1,34 +1,23 @@
 <div>
-  <h1>Gestione biblioteca</h1>
+  <h1>{{title}}</h1>
   <button>Ricerca</button>
   <br>
   <br>
-  <button (click)="changeWindow($event)">Inserisci</button>
-  <app-inserimento (windowEvent)="changeWindow($event)"></app-inserimento>
-  <app-ricerca></app-ricerca>
+  <button (click)="seleziona(view)">Inserisci</button>
+  <app-inserimento></app-inserimento>
+  <app-ricerca ></app-ricerca>
+  <p>{{ selezionata }}</p>
 </div>
 
-
 <!--
-  <div>
-  <h1>Gestione biblioteca</h1>
-  <button (click)="changeWindow(ricerca)">Ricerca</button>
-  <br>
-  <br>
-  <button (click)="changeWindow(inserimento)">Inserisci</button>
-  <app-inserimento *ngIf='window==="inserimento"'></app-inserimento>
-  <app-ricerca></app-ricerca>
-</div>
+<h3>
+  {{ title }}
+</h3>
+<ul>
+  <li *ngFor="let city of cities">
+    <button (click)="seleziona(city.nome)">{{ city.nome }}</button>
+  </li>
+</ul>
+<p>La citta' selezionata e' {{ selezionata }}</p>
 
--->
-
-<!--
-<app-newcity (newCityEvent)="addCity($event)"> </app-newcity>
-<app-inserimento (windowEvent)="changeWindow($event)"></app-inserimento>
--->
-
-<!--
-<p>
-  <input id="nuovo" (keyup.enter)="newCity()" />
-</p>
 -->
