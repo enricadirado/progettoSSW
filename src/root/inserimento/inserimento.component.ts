@@ -9,12 +9,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class InserimentoComponent implements OnInit {
-  @Input() selezione: string | undefined;
+  
   constructor() {}
   ngOnInit() {}
-  clean() {
-    this.selezione = undefined;
-  }
+ 
 }
 
 /*

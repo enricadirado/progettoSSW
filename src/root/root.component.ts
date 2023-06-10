@@ -11,13 +11,8 @@ import { RicercaComponent } from './ricerca/ricerca.component';
   imports: [InserimentoComponent, RicercaComponent, CommonModule],
 })
 export class RootComponent implements OnInit {
-  title: string ="Gestione biblioteca - Home";
-  view: string= 'home';
-  seleziona(name: string) {
-    this.selezione = name;
-  }
-  
-  selezione: string|undefined;
+  title: string ="Byblos";
+ 
   
   constructor() {}
 
