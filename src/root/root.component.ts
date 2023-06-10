@@ -15,7 +15,7 @@ export class RootComponent implements OnInit {
   cambioView(name:string){
     this.selezione=name;
   }
-  selezione:string;
+  selezione:string= 'home';
   constructor() {}
 
   ngOnInit() {}
