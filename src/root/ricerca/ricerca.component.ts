@@ -11,8 +11,6 @@ import { RimozioneComponent } from './rimozione/rimozione.component';
 })
 export class RicercaComponent implements OnInit {
 
-  view: string = 'research';
-
   constructor() { }
 
   ngOnInit() {

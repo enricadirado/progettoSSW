@@ -9,10 +9,14 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class InserimentoComponent implements OnInit {
-  
+  @Input() selezione: string;
+  @Output() newViewEvent = new EventEmitter<string>();
   constructor() {}
   ngOnInit() {}
- 
+  cambioView(name:string){
+    this.selezione=name;
+    this.newViewEvent.emit(this.selezione);
+  }
 }
 
 /*

@@ -12,8 +12,10 @@ import { RicercaComponent } from './ricerca/ricerca.component';
 })
 export class RootComponent implements OnInit {
   title: string ="Byblos";
- 
-  
+  cambioView(name:string){
+    this.selezione=name;
+  }
+  selezione:string;
   constructor() {}
 
   ngOnInit() {}

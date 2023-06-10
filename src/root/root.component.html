@@ -1,8 +1,7 @@
 <div>
   <h1>{{title}}</h1>
-  <button >Inserisci</button>
-  <app-inserimento ></app-inserimento>
+  <button (click)="cambioView('insert')">Inserisci un volume</button>
+  <app-inserimento [selezione]="selezione" (newViewEvent)="cambioView($event)"></app-inserimento>
   <app-ricerca ></app-ricerca>
-  
 </div>
 
