@@ -18,7 +18,7 @@ export class RicercaComponent implements OnInit {
   @Output() ricercaLibroEvent = new EventEmitter<string>();
   
   constructor(private as: ArchivioService) { }
-
+  
   ricercaLibro(){
     
     this.as.getData().subscribe({
@@ -34,12 +34,21 @@ export class RicercaComponent implements OnInit {
         const archivio_filtrato= archivio2.filter((el) =>
         (el.titolo + el.autore).toLowerCase().includes(y));
         console.log(archivio_filtrato);
+        if (archivio_filtrato.length===1){
+          this.libroTrovato = archivio_filtrato[0];
+          console.log('LT', this.libroTrovato);
+          this.numeroLibri= archivio_filtrato.length;
+        } else {
+          this.numeroLibri= archivio_filtrato.length;
+          console.log(this.numeroLibri);
+        } 
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
-  
+  numeroLibri: number;
+  libroTrovato: Libro;
   archivio: Archivio;
   ngOnInit() {
   }
@@ -55,4 +64,15 @@ var input: HTMLInputElement = document.getElementById("nuovo") as HTMLInputEleme
 
      const archivio = db.filter((el) =>
       (el.titolo + el.autore).toLowerCase().includes(btnInput.value));
+
+
+      if (archivio.length > 1) {
+        result.innerHTML =
+          'La ricerca ha prodotto ' + archivio.length + ' risultati.';
+      } else if (archivio.length == 1) {
+        result.innerHTML =
+          'Autore: ' + archivio[0].autore + '\nTitolo: ' + archivio[0].titolo;
+      } else if (archivio.length == 0) {
+        result.innerHTML = 'La ricerca non ha prodotto nessun risultato. ';
+      }
 */
