@@ -16,19 +16,24 @@ import { Archivio } from '../archivio';
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
   @Output() ricercaLibroEvent = new EventEmitter<string>();
-  archivio_filtrato: Archivio;
+  
   constructor(private as: ArchivioService) { }
 
   ricercaLibro(){
-    let input: HTMLInputElement = document.getElementById("res") as HTMLInputElement;
-    var el = input.value;
+    
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) =>{
-        console.log(x.response);
-        console.log(JSON.parse(x.response));
+        console.log(x.response, 'type:', typeof(x.response));
+        console.log(JSON.parse(x.response), 'type:', typeof(JSON.parse(x.response)));
         var archivio: Archivio = new Archivio(JSON.parse(x.response));
-        console.log(archivio);
-        /*var archivio_filtrato: Archivio = archivio.filtraLibro(el);*/
+        console.log(archivio, 'type:', typeof(archivio));
+        var archivio2: Array<Libro> = JSON.parse(x.response);
+
+        let input: HTMLInputElement = document.getElementById("res") as HTMLInputElement;
+        let y = input.value;
+        const archivio_filtrato= archivio2.filter((el) =>
+        (el.titolo + el.autore).toLowerCase().includes(y));
+        console.log(archivio_filtrato);
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
