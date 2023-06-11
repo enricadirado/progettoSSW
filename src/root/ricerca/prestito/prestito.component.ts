@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArchivioService } from '../../archivio.service';
 
 @Component({
   selector: 'app-prestito',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrestitoComponent implements OnInit {
 
-  constructor() { }
+  constructor(as: ArchivioService) { }
 
   ngOnInit() {
   }

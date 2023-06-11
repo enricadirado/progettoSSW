@@ -1,5 +1,10 @@
 <br />
 <br />
-<input type="text" placeholder="Riceca per nome o titolo"/>
+<input
+  type="text"
+  id="res"
+  placeholder="Ricerca per nome o titolo"
+  (keyup)="ricercaLibro()"
+/>
 <app-rimozione></app-rimozione>
 <app-prestito></app-prestito>

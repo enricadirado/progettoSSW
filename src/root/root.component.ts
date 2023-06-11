@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ArchivioService } from './archivio.service';
 import { InserimentoComponent } from './inserimento/inserimento.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
 
@@ -16,8 +17,11 @@ export class RootComponent implements OnInit {
     this.selezione=name;
   }
   selezione:string= 'home';
-  constructor() {}
+  constructor(private as: ArchivioService) {}
 
+  showBook(){
+    
+  }
   ngOnInit() {}
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ArchivioService } from '../archivio.service';
 
 @Component({
   selector: 'app-inserimento',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class InserimentoComponent implements OnInit {
   @Input() selezione: string;
   @Output() newViewEvent = new EventEmitter<string>();
-  constructor() {}
+  constructor(private as: ArchivioService) {}
   ngOnInit() {}
   cambioView(name:string){
     this.selezione=name;
