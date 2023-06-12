@@ -40,13 +40,13 @@ export class InserimentoComponent implements OnInit {
         archivio1.aggiuntaLibro(libro);
         var archivio2 = JSON.stringify(archivio1);
         console.log(archivio2);
-        this.as.setData(archivio2).subscribe({
+        /*this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),
-        });
+        });*/
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),

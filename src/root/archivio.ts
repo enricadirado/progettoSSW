@@ -7,9 +7,7 @@ export class Archivio {
   }
 
   //metodi da applicare su archivio
-  filtraLibro(){
-    
-  }
+  filtraLibro(){}
 
   aggiuntaLibro(nuovoLibro: Libro) {
     this.archivio.push(nuovoLibro);
