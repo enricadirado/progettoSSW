@@ -18,6 +18,12 @@ export class InserimentoComponent implements OnInit {
     this.selezione=name;
     this.newViewEvent.emit(this.selezione);
   }
+
+  inserisciDoc(){
+    let titolo: string = (document.getElementById("titolo") as HTMLInputElement).value;
+    let autore: string = (document.getElementById("autore") as HTMLInputElement).value;
+    let posizione: string = (document.getElementById("posizione") as HTMLInputElement).value;
+  }
 }
 
 /*
