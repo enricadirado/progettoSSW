@@ -37,6 +37,7 @@ export class InserimentoComponent implements OnInit {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) =>{
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));
+        console.log(archivio1);
         archivio1.aggiuntaLibro(libro);
         var archivio2 = JSON.stringify(archivio1);
         console.log(archivio2);
