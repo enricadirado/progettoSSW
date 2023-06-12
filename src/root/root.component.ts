@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { ArchivioService } from './archivio.service';
 import { InserimentoComponent } from './inserimento/inserimento.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
+import { RisultatoComponent } from './risultato/risultato.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './root.component.html',
   styleUrls: ['./root.component.css'],
   standalone: true,
-  imports: [InserimentoComponent, RicercaComponent, CommonModule],
+  imports: [InserimentoComponent, RicercaComponent, CommonModule, RisultatoComponent],
 })
 export class RootComponent implements OnInit {
   title: string ="Byblos";
