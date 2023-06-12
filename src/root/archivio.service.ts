@@ -6,9 +6,10 @@ import { ajax, AjaxResponse } from 'rxjs/ajax';
   providedIn: 'any',
 })
 export class ArchivioService {
-  URLGet: string ='https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=16c0cb3f';
-  URLSet: string ='https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/set?key=16c0cb3f';
-  
+  URLGet: string =
+    'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=16c0cb3f';
+  URLSet: string =
+    'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/set?key=16c0cb3f';
 
   constructor() {}
 
@@ -23,14 +24,12 @@ export class ArchivioService {
   public setData(nuovoArchivio: string): Observable<AjaxResponse<any>> {
     return ajax({
       method: 'POST',
-      url: this.URLGet,
+      url: this.URLSet,
       crossDomain: true,
-      body: nuovoArchivio
+      body: nuovoArchivio,
     });
   }
 }
-
-
 
 /*
 URL: string ='https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=3abb610b';

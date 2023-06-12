@@ -11,7 +11,9 @@ export class Archivio {
     
   }
 
-  aggiuntaLibro() {}
+  aggiuntaLibro(nuovoLibro: Libro) {
+    this.archivio.push(nuovoLibro);
+  }
 
   rimozioneLibro() {}
 
