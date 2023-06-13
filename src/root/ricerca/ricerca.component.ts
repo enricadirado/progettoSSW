@@ -16,7 +16,6 @@ import { RimozioneComponent } from './rimozione/rimozione.component';
   imports:[CommonModule, RimozioneComponent]  //per ora non ci sono prestito e rimozione
 })
 export class RicercaComponent implements OnInit {
-  @Input() selezione: string;
   @Output() ricercaLibroEvent = new EventEmitter<string>();
   
   constructor(private as: ArchivioService) { }
@@ -61,6 +60,8 @@ export class RicercaComponent implements OnInit {
   autore:string;
   posizione:string;
   nominativo:string;
+  archivio_filtrato: object;
+  archivio2: object;
   ngOnInit() {
   }
 }

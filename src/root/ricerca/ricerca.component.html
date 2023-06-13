@@ -15,7 +15,9 @@
   <p>{{titolo}}</p>
   <p>{{autore}}</p>
   <p>{{posizione}}</p>
-  <app-rimozione></app-rimozione>
+
+  <app-rimozione [archivio2]="archivio2" [libroTrovato]="libroTrovato"></app-rimozione>
+
 </div>
 <div *ngIf="numeroLibri > 1">
   {{numeroLibri}} corrispondenze trovate
