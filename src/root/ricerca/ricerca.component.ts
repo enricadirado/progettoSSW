@@ -26,12 +26,15 @@ export class RicercaComponent implements OnInit {
       next: (x: AjaxResponse<any>) =>{
         let input: HTMLInputElement = document.getElementById("res") as HTMLInputElement;
         let y = input.value;
-        
 
-        var archivio2: Array<Libro> = JSON.parse(x.response);
-        console.log(archivio2, '2 type:', typeof(archivio2));
+        console.log(JSON.parse(x.response));
+        let archivio1: Archivio = new Archivio(JSON.parse(x.response));
+        console.log(archivio1);
 
+        /*var archivio2: Array<Libro> = JSON.parse(x.response);
+        console.log(archivio2, '2 type:', typeof(archivio2));*/
 
+/*
         const archivio_filtrato= archivio2.filter((el) =>
         (el.titolo + el.autore).toLowerCase().includes(y));
         console.log(archivio_filtrato, "3 type: ", typeof(archivio_filtrato));
@@ -53,7 +56,7 @@ export class RicercaComponent implements OnInit {
           console.log("ex", y)
           this.libroTrovato = undefined;
           this.numeroLibri=-1;
-        }
+        }*/
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
@@ -61,7 +64,7 @@ export class RicercaComponent implements OnInit {
   }
   numeroLibri: number;
   libroTrovato: Libro;
-  archivio: Archivio;
+  archivio1: Archivio;
 
   titolo: string;
   autore:string;
