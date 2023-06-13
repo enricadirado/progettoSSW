@@ -1,22 +1,26 @@
 <br />
 <br />
+
 <input
   type="text"
   id="res"
   placeholder="Ricerca per nome o titolo"
   (keyup)="ricercaLibro()"
 />
+
 <br />
 <br />
+
 <div *ngIf="numeroLibri == 1">
   <p>{{titolo}}</p>
   <p>{{autore}}</p>
   <p>{{posizione}}</p>
-  
+  <app-rimozione></app-rimozione>
 </div>
 <div *ngIf="numeroLibri > 1">
   {{numeroLibri}} corrispondenze trovate
 </div>
+
 <div *ngIf="numeroLibri == 0">
   Nessuna corrispondenza trovata
 </div>

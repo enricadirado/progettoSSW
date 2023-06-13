@@ -39,7 +39,7 @@ export class InserimentoComponent implements OnInit {
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));
         console.log(archivio1);
         archivio1.aggiuntaLibro(libro);
-        var archivio2: string = JSON.stringify(archivio1);
+        var archivio2= JSON.stringify(archivio1.archivio);
         console.log(archivio2);
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) =>{
@@ -55,20 +55,3 @@ export class InserimentoComponent implements OnInit {
 
   }
 }
-
-/*
-view: string= 'home';
-  seleziona(name: string) {
-    this.selezione = name;
-  }
-
-
-
-
-this.ws.getData().subscribe({
-      next: (x: AjaxResponse<any>) =>
-        (x.response),
-      error: (err) =>
-        console.error('Observer got an error: ' + JSON.stringify(err)),
-    });
-  */
