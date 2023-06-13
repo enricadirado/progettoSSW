@@ -27,6 +27,7 @@ export class RicercaComponent implements OnInit {
         let input: HTMLInputElement = document.getElementById("res") as HTMLInputElement;
         let y = input.value;
 
+        console.log(x.response);
         var archivio: Archivio = new Archivio(JSON.parse(x.response));
         console.log(archivio, '1 type:', typeof(archivio));
         var archivio2: Array<Libro> = JSON.parse(x.response);
