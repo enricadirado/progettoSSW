@@ -24,6 +24,17 @@ export class RimozioneComponent implements OnInit {
         this.archivioFinal = archivioStart.archivio.filter((el) =>
         (el.titolo !== this.libroTrovato.titolo || el.autore !== this.libroTrovato.autore || el.posizione !== this.libroTrovato.posizione || el.nominativo !== this.libroTrovato.nominativo));
         console.log('final', this.archivioFinal);
+
+        var archivio3= JSON.stringify(this.archivioFinal);
+        console.log(archivio3);
+        
+        this.as.setData(archivio3).subscribe({
+          next: (x: AjaxResponse<any>) =>{
+            console.log(x.response);
+          },
+          error: (err) =>
+            console.error('Observer got an error: ' + JSON.stringify(err)),
+        });
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
