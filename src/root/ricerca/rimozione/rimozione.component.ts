@@ -12,12 +12,10 @@ import { Libro } from '../../libro';
 })
 export class RimozioneComponent implements OnInit {
   @Input() archivio2: Array<Libro>;
-  @Input() libroTrovato: Libro;
+  
 
   constructor(as: ArchivioService) {  }
-  rimuoviLibro(){
-    
-  }
+
   ngOnInit() {
   }
 
