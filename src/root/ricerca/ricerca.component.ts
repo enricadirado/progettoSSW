@@ -34,12 +34,12 @@ export class RicercaComponent implements OnInit {
 
         const archivio_filtrato= archivio2.filter((el) =>
         (el.titolo + el.autore).toLowerCase().includes(y));
-        console.log(archivio_filtrato);
+        console.log(archivio_filtrato, "3 type: ", typeof(archivio_filtrato));
 
         if(y!=""){
           if (archivio_filtrato.length===1){
             this.libroTrovato = archivio_filtrato[0];
-            console.log('LT', this.libroTrovato);
+            console.log('LT', this.libroTrovato, "4 type: ", typeof(this.libroTrovato));
             this.numeroLibri= archivio_filtrato.length;
             this.titolo= this.libroTrovato.titolo;
             this.autore= this.libroTrovato.autore;
