@@ -1,16 +1,16 @@
 export class Libro {
-  titolo: string;
   autore: string;
+  titolo: string;
   posizione: string;
   nominativo: string;
   constructor(
-    titolo: string,
     autore: string,
+    titolo: string,
     posizione: string,
     nominativo: string
   ) {
-    this.titolo = titolo;
     this.autore = autore;
+    this.titolo = titolo;
     this.posizione = posizione;
     this.nominativo = nominativo;
   }
