@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Libro } from '../../../libro';
 import { ArchivioService } from '../../../archivio.service';
 import { Archivio } from '../../../archivio';
@@ -14,7 +14,9 @@ import { AjaxResponse } from 'rxjs/ajax';
 })
 export class RimozioneComponent implements OnInit {
   @Input() libroTrovato: Libro;
+  @Output() rimuoviDocEvent = new EventEmitter<string>();
   archivioFinal: Array<Libro>=[];
+  x: string;
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
     console.log('rimozione', this.libroTrovato);
@@ -23,15 +25,12 @@ export class RimozioneComponent implements OnInit {
         let archivioStart: Archivio= new Archivio(JSON.parse(x.response));
         this.archivioFinal = archivioStart.archivio.filter((el) =>
         (el.titolo !== this.libroTrovato.titolo || el.autore !== this.libroTrovato.autore || el.posizione !== this.libroTrovato.posizione || el.nominativo !== this.libroTrovato.nominativo));
-        console.log('final', this.archivioFinal);
-
         var archivio3= JSON.stringify(this.archivioFinal);
-        console.log(archivio3);
-        
+        this.x='-1';
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
-            
+            this.rimuoviDocEvent.emit(this.x);
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),

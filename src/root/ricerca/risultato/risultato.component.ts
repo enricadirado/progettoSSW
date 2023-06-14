@@ -17,7 +17,9 @@ export class RisultatoComponent implements OnInit {
   @Input() libroTrovato: Libro;
   
   constructor() { }
-  
+  removeDoc(x:string){
+
+  }
   ngOnInit() {
   }
 
