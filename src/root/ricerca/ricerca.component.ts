@@ -28,12 +28,12 @@ export class RicercaComponent implements OnInit {
   archivioFinal: Array<Libro> = [];
   archivioStart: Archivio;
   libroTrovato: Libro;
-  x:string;
+ 
   y:string;
 
   constructor(private as: ArchivioService) {}
 
-  ricercaLibro(x:string) {
+  ricercaLibro() {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById(
