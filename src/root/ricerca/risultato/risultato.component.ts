@@ -16,7 +16,6 @@ export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
   
-
   constructor() { }
   
   ngOnInit() {

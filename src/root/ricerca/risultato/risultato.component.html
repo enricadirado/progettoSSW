@@ -1,2 +1,6 @@
-<p>risultato 2</p>
-<app-rimozione></app-rimozione>
+<div >
+  <p>{{ libroTrovato.titolo }}</p>
+  <p>{{ libroTrovato.autore }}</p>
+  <p>{{ libroTrovato.posizione }}</p>
+</div>
+<app-rimozione [libroTrovato]="libroTrovato"></app-rimozione>

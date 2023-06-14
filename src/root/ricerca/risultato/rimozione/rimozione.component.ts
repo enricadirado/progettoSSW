@@ -31,6 +31,7 @@ export class RimozioneComponent implements OnInit {
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
+            
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),
