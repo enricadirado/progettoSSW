@@ -7,65 +7,75 @@ import { AjaxResponse } from 'rxjs/ajax';
 import { Archivio } from '../archivio';
 import { RimozioneComponent } from './rimozione/rimozione.component';
 
-
 @Component({
   selector: 'app-ricerca',
   templateUrl: './ricerca.component.html',
   styleUrls: ['./ricerca.component.css'],
-  standalone:true,
-  imports:[CommonModule, RimozioneComponent]  //per ora non ci sono prestito e rimozione
+  standalone: true,
+  imports: [CommonModule, RimozioneComponent], //per ora non ci sono prestito e rimozione
 })
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
   @Output() ricercaLibroEvent = new EventEmitter<string>();
   numeroLibri: number;
-  archivioFinal: Array<Libro>=[];
-  archivioStart:Archivio;
+  archivioFinal: Array<Libro> = [];
+  archivioStart: Archivio;
   libroTrovato: Libro;
-  titolo:string;
+  titolo: string;
   autore: string;
-  posizione:string;
+  posizione: string;
   nominativo: string;
-  constructor(private as: ArchivioService) { }
-  
-  ricercaLibro(){
+  constructor(private as: ArchivioService) {}
+
+  ricercaLibro() {
     this.as.getData().subscribe({
-      next: (x: AjaxResponse<any>) =>{
-        let input: HTMLInputElement = document.getElementById("res") as HTMLInputElement;
+      next: (x: AjaxResponse<any>) => {
+        let input: HTMLInputElement = document.getElementById(
+          'res'
+        ) as HTMLInputElement;
         let y = input.value;
-        
-        let archivioStart: Archivio= new Archivio(JSON.parse(x.response));
+
+        let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
 
         this.archivioFinal = archivioStart.archivio.filter((el) =>
-        (el.titolo + el.autore).toLowerCase().includes(y));
-        
-        console.log(archivioStart, '2 type:', typeof(archivioStart));
-        console.log(this.archivioFinal, 'final type:', typeof(this.archivioFinal));
-        
-        if(y!=""){
-          if (this.archivioFinal.length===1){
+          (el.titolo + el.autore).toLowerCase().includes(y)
+        );
+
+        console.log(archivioStart, '2 type:', typeof archivioStart);
+        console.log(
+          this.archivioFinal,
+          'final type:',
+          typeof this.archivioFinal
+        );
+
+        if (y != '') {
+          if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
-            console.log('LT', this.libroTrovato, "4 type: ", typeof(this.libroTrovato));
-            this.numeroLibri= this.archivioFinal.length;
-            this.titolo= this.libroTrovato.titolo;
-            this.autore= this.libroTrovato.autore;
-            this.posizione= this.libroTrovato.posizione;
-            this.nominativo= this.libroTrovato.nominativo;
+            console.log(
+              'LT',
+              this.libroTrovato,
+              '4 type: ',
+              typeof this.libroTrovato
+            );
+            this.numeroLibri = this.archivioFinal.length;
+            this.titolo = this.libroTrovato.titolo;
+            this.autore = this.libroTrovato.autore;
+            this.posizione = this.libroTrovato.posizione;
+            this.nominativo = this.libroTrovato.nominativo;
           } else {
-            this.numeroLibri= this.archivioFinal.length;
+            this.numeroLibri = this.archivioFinal.length;
             console.log(this.numeroLibri);
-          } 
+          }
         } else {
           this.libroTrovato = undefined;
-          this.numeroLibri=-1;
+          this.numeroLibri = -1;
         }
       },
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
 
 /*
