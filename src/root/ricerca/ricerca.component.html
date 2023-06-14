@@ -15,11 +15,12 @@
   <p>{{ titolo }}</p>
   <p>{{ autore }}</p>
   <p>{{ posizione }}</p>
-  <app-rimozione [libroTrovato]="libroTrovato"></app-rimozione>
+  
 </div>
-<div *ngIf="numeroLibri > 1">{{ numeroLibri }} corrispondenze trovate</div>
-
-<div *ngIf="numeroLibri == 0">Nessuna corrispondenza trovata</div>
+<!--<div *ngIf="numeroLibri > 1">{{ numeroLibri }} corrispondenze trovate</div>-->
+<!--<div *ngIf="numeroLibri == 0">Nessuna corrispondenza trovata</div>-->
 <div *ngIf="numeroLibri == -1"></div>
 
-<app-risultato *ngIf="mostra == 'result'" [mostra]="mostra"></app-risultato>
+<app-risultato *ngIf="mostra == 'result'" [mostra]="mostra" [archivioFinal]="archivioFinal"></app-risultato>
+<app-risultato-libri *ngIf="numeroLibri > 1" [numeroLibri]="numeroLibri"></app-risultato-libri>
+<app-risultato-nullo *ngIf="numeroLibri == 0" [numeroLibri]="numeroLibri"></app-risultato-nullo>

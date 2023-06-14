@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArchivioService } from '../../archivio.service';
+import { ArchivioService } from '../../../archivio.service';
 
 @Component({
   selector: 'app-prestito',

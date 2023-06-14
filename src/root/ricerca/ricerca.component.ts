@@ -5,15 +5,17 @@ import { Libro } from '../libro';
 
 import { AjaxResponse } from 'rxjs/ajax';
 import { Archivio } from '../archivio';
-import { RimozioneComponent } from './rimozione/rimozione.component';
+
 import { RisultatoComponent } from './risultato/risultato.component';
+import { RisultatoLibriComponent } from './risultato-libri/risultato-libri.component';
+import { RisultatoNulloComponent } from './risultato-nullo/risultato-nullo.component';
 
 @Component({
   selector: 'app-ricerca',
   templateUrl: './ricerca.component.html',
   styleUrls: ['./ricerca.component.css'],
   standalone: true,
-  imports: [CommonModule, RimozioneComponent, RisultatoComponent], //per ora non ci sono prestito e rimozione
+  imports: [CommonModule, RisultatoComponent, RisultatoLibriComponent, RisultatoNulloComponent], 
 })
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
@@ -46,21 +48,12 @@ export class RicercaComponent implements OnInit {
         );
 
         console.log(archivioStart, '2 type:', typeof archivioStart);
-        console.log(
-          this.archivioFinal,
-          'final type:',
-          typeof this.archivioFinal
-        );
+        console.log(this.archivioFinal,'final type:',typeof this.archivioFinal);
 
         if (y != '') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
-            console.log(
-              'LT',
-              this.libroTrovato,
-              '4 type: ',
-              typeof this.libroTrovato
-            );
+            console.log('LT',this.libroTrovato,'4 type: ',typeof this.libroTrovato );
             this.numeroLibri = this.archivioFinal.length;
             this.titolo = this.libroTrovato.titolo;
             this.autore = this.libroTrovato.autore;
@@ -70,10 +63,12 @@ export class RicercaComponent implements OnInit {
           } else {
             this.numeroLibri = this.archivioFinal.length;
             console.log(this.numeroLibri);
+            this.mostra="result1";
           }
         } else {
           this.libroTrovato = undefined;
           this.numeroLibri = -1;
+          this.mostra="result2";
         }
       },
       error: (err) =>
