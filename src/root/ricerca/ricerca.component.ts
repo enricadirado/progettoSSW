@@ -36,15 +36,11 @@ export class RicercaComponent implements OnInit {
   ricercaLibro() {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
-        let input: HTMLInputElement = document.getElementById(
-          'res'
-        ) as HTMLInputElement;
-
+        let input: HTMLInputElement = document.getElementById( 'res' ) as HTMLInputElement;
         let y = input.value;
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
         this.archivioFinal = archivioStart.archivio.filter((el) =>
-          (el.titolo + el.autore).toLowerCase().includes(y)
-        );
+          (el.titolo + el.autore).toLowerCase().includes(y));
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal
         );
@@ -66,6 +62,11 @@ export class RicercaComponent implements OnInit {
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
     
+  }
+  verifyResult: string;
+  clearResultRicerca(verifyResult:string){
+    verifyResult= "absent";
+    console.log('verifyRicercaComp:', verifyResult);
   }
 
   ngOnInit() {}

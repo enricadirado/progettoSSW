@@ -2,8 +2,8 @@
 <br />
 <input  type="text"  id="res"  placeholder="Ricerca per nome o titolo"  (keyup)="ricercaLibro()"/>
 <br />
-<div *ngIf="numeroLibri == -1"></div>
+<div *ngIf="numeroLibri == -1 || verifyResult == 'absent'"></div>
 
-<app-risultato *ngIf="numeroLibri == 1" [numeroLibri]="numeroLibri" [libroTrovato]="libroTrovato" (removeDocEvent)="ricercaLibro()"></app-risultato>
+<app-risultato *ngIf="numeroLibri == 1" [numeroLibri]="numeroLibri" [libroTrovato]="libroTrovato" (removeDocEvent)="ricercaLibro()" (clearResultEvent)="clearResultRicerca($event)"></app-risultato>
 <app-risultato-libri *ngIf="numeroLibri > 1" [numeroLibri]="numeroLibri"></app-risultato-libri>
 <app-risultato-nullo *ngIf="numeroLibri == 0" [numeroLibri]="numeroLibri"></app-risultato-nullo>

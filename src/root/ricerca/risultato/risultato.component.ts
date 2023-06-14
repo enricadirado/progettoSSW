@@ -15,9 +15,17 @@ import { PrestitoComponent } from './prestito/prestito.component';
 export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
-  
+  verifyResult: string;
+
+  /*manda verifyResult a ricerca */
+  @Output() clearResultEvent = new EventEmitter<string>();
+
   constructor() {}
-  
+  clearResult(verifyResult: string){
+    console.log('verifyRisultatoComponent:', verifyResult);
+    /*manda verifyResult a ricerca */
+    this.clearResultEvent.emit(this.verifyResult);
+  }
   
   ngOnInit() {}
 }

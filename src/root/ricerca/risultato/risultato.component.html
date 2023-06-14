@@ -1,6 +1,7 @@
-<div >
+<div>
   <p>{{ libroTrovato.titolo }}</p>
   <p>{{ libroTrovato.autore }}</p>
   <p>{{ libroTrovato.posizione }}</p>
+  
+  <app-rimozione [libroTrovato]="libroTrovato" (rimuoviDocEvent)="clearResult($event)"></app-rimozione>
 </div>
-<app-rimozione [libroTrovato]="libroTrovato"></app-rimozione>
