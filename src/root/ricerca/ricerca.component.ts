@@ -6,13 +6,14 @@ import { Libro } from '../libro';
 import { AjaxResponse } from 'rxjs/ajax';
 import { Archivio } from '../archivio';
 import { RimozioneComponent } from './rimozione/rimozione.component';
+import { RisultatoComponent } from './risultato/risultato.component';
 
 @Component({
   selector: 'app-ricerca',
   templateUrl: './ricerca.component.html',
   styleUrls: ['./ricerca.component.css'],
   standalone: true,
-  imports: [CommonModule, RimozioneComponent], //per ora non ci sono prestito e rimozione
+  imports: [CommonModule, RimozioneComponent, RisultatoComponent], //per ora non ci sono prestito e rimozione
 })
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
@@ -25,6 +26,9 @@ export class RicercaComponent implements OnInit {
   autore: string;
   posizione: string;
   nominativo: string;
+
+  mostra: string;
+
   constructor(private as: ArchivioService) {}
 
   ricercaLibro() {
@@ -62,6 +66,7 @@ export class RicercaComponent implements OnInit {
             this.autore = this.libroTrovato.autore;
             this.posizione = this.libroTrovato.posizione;
             this.nominativo = this.libroTrovato.nominativo;
+            this.mostra="result";
           } else {
             this.numeroLibri = this.archivioFinal.length;
             console.log(this.numeroLibri);
