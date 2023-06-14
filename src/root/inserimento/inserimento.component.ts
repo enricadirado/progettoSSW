@@ -16,7 +16,6 @@ export class InserimentoComponent implements OnInit {
   @Input() selezione: string;
   @Output() newViewEvent = new EventEmitter<string>();
 
-
   constructor(private as: ArchivioService) {}
   ngOnInit() {}
   cambioView(name: string) {
@@ -25,24 +24,36 @@ export class InserimentoComponent implements OnInit {
   }
 
   inserisciDoc() {
-    let titolo: string = (document.getElementById('titolo') as HTMLInputElement)
+    var inputTitolo: HTMLInputElement = document.getElementById(
+      'titolo'
+    ) as HTMLInputElement;
+    var titolo = inputTitolo.value;
+    var inputAutore: HTMLInputElement = document.getElementById(
+      'autore'
+    ) as HTMLInputElement;
+    var autore = inputAutore.value;
+    var inputPosizione: HTMLInputElement = document.getElementById(
+      'posizione'
+    ) as HTMLInputElement;
+    var posizione = inputPosizione.value;
+    /*let titolo: string = (document.getElementById('titolo') as HTMLInputElement)
       .value;
     let autore: string = (document.getElementById('autore') as HTMLInputElement)
       .value;
     let posizione: string = (
       document.getElementById('posizione') as HTMLInputElement
-    ).value;
+    ).value;*/
     let libro: Libro = new Libro(autore, titolo, posizione, 'undefined');
 
     this.as.getData().subscribe({
-      next: (x: AjaxResponse<any>) =>{
+      next: (x: AjaxResponse<any>) => {
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));
         console.log(archivio1);
         archivio1.aggiuntaLibro(libro);
-        var archivio2= JSON.stringify(archivio1.archivio);
+        var archivio2 = JSON.stringify(archivio1.archivio);
         console.log(archivio2);
         this.as.setData(archivio2).subscribe({
-          next: (x: AjaxResponse<any>) =>{
+          next: (x: AjaxResponse<any>) => {
             console.log(x.response);
           },
           error: (err) =>
@@ -52,6 +63,8 @@ export class InserimentoComponent implements OnInit {
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
-
+    inputTitolo.value = '';
+    inputAutore.value = '';
+    inputPosizione.value = '';
   }
 }
