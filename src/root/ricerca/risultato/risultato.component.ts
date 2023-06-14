@@ -13,8 +13,8 @@ import { PrestitoComponent } from './prestito/prestito.component';
   imports: [CommonModule, RimozioneComponent, PrestitoComponent]
 })
 export class RisultatoComponent implements OnInit {
-  @Input() mostra: string;
-  @Input() archivioFinal: Array<Libro> = [];
+  @Input() numeroLibri: number;
+  @Input() libroTrovato: Libro;
   
 
   constructor() { }
