@@ -15,8 +15,10 @@ import { AjaxResponse } from 'rxjs/ajax';
 export class RimozioneComponent implements OnInit {
   @Input() libroTrovato: Libro;
   @Output() rimuoviDocEvent = new EventEmitter<string>();
+
   archivioFinal: Array<Libro>=[];
   x: string;
+
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
     console.log('rimozione', this.libroTrovato);
@@ -26,7 +28,8 @@ export class RimozioneComponent implements OnInit {
         this.archivioFinal = archivioStart.archivio.filter((el) =>
         (el.titolo !== this.libroTrovato.titolo || el.autore !== this.libroTrovato.autore || el.posizione !== this.libroTrovato.posizione || el.nominativo !== this.libroTrovato.nominativo));
         var archivio3= JSON.stringify(this.archivioFinal);
-        this.x='-1';
+        this.x='hide';
+
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);

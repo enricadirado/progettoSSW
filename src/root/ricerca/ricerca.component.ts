@@ -28,10 +28,12 @@ export class RicercaComponent implements OnInit {
   archivioFinal: Array<Libro> = [];
   archivioStart: Archivio;
   libroTrovato: Libro;
+  x:string;
+  y:string;
 
   constructor(private as: ArchivioService) {}
 
-  ricercaLibro() {
+  ricercaLibro(x:string) {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById(
@@ -63,7 +65,9 @@ export class RicercaComponent implements OnInit {
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
+    
   }
+
   ngOnInit() {}
 }
 
