@@ -36,13 +36,6 @@ export class InserimentoComponent implements OnInit {
       'posizione'
     ) as HTMLInputElement;
     var posizione = inputPosizione.value;
-    /*let titolo: string = (document.getElementById('titolo') as HTMLInputElement)
-      .value;
-    let autore: string = (document.getElementById('autore') as HTMLInputElement)
-      .value;
-    let posizione: string = (
-      document.getElementById('posizione') as HTMLInputElement
-    ).value;*/
     let libro: Libro = new Libro(autore, titolo, posizione, 'undefined');
 
     this.as.getData().subscribe({
