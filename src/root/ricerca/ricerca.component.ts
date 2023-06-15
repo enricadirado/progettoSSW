@@ -7,6 +7,7 @@ import { Archivio } from '../archivio';
 import { RisultatoComponent } from './risultato/risultato.component';
 import { RisultatoLibriComponent } from './risultato-libri/risultato-libri.component';
 import { RisultatoNulloComponent } from './risultato-nullo/risultato-nullo.component';
+import { RisultatoResetComponent } from './risultato-reset/risultato-reset.component';
 
 @Component({
   selector: 'app-ricerca',
@@ -18,10 +19,12 @@ import { RisultatoNulloComponent } from './risultato-nullo/risultato-nullo.compo
     RisultatoComponent,
     RisultatoLibriComponent,
     RisultatoNulloComponent,
+    RisultatoResetComponent
   ],
 })
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
+  
 
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];
@@ -46,7 +49,7 @@ export class RicercaComponent implements OnInit {
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
 
-        if ((y != '')&&(valInp!='hide')) {
+        if (y != '') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
@@ -56,7 +59,6 @@ export class RicercaComponent implements OnInit {
             console.log('ramo 2', valInp);
           }
         } else{
-          valInp='hide';
           console.log('ramo 3', valInp);
           this.libroTrovato = undefined;
           this.numeroLibri = -1;

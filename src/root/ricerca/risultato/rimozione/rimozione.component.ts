@@ -17,7 +17,7 @@ export class RimozioneComponent implements OnInit {
   @Output() rimuoviDocEvent = new EventEmitter<string>();
 
   archivioFinal: Array<Libro>=[];
-  x: string;
+  xStr: string;
 
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
@@ -28,12 +28,12 @@ export class RimozioneComponent implements OnInit {
         this.archivioFinal = archivioStart.archivio.filter((el) =>
         (el.titolo !== this.libroTrovato.titolo || el.autore !== this.libroTrovato.autore || el.posizione !== this.libroTrovato.posizione || el.nominativo !== this.libroTrovato.nominativo));
         var archivio3= JSON.stringify(this.archivioFinal);
-        this.x='hide';
+        this.xStr='hide';
 
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
-            this.rimuoviDocEvent.emit(this.x);
+            this.rimuoviDocEvent.emit(this.xStr);
             let input: HTMLInputElement = document.getElementById( 'res' ) as HTMLInputElement;
             input.value=" ";
           },
