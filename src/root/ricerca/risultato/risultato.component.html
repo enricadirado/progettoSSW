@@ -3,5 +3,7 @@
   <p>{{ libroTrovato.autore }}</p>
   <p>{{ libroTrovato.posizione }}</p>
 </div>
-<app-prestito></app-prestito>
+<app-prestito *ngIf="libroTrovato.nominativo == 'undefined'" [libroTrovato]="libroTrovato"></app-prestito>
+<app-restituzione *ngIf="libroTrovato.nominativo !== 'undefined'"></app-restituzione>
+<br/>
 <app-rimozione [libroTrovato]="libroTrovato" (rimuoviDocEvent)="removeDoc($event)"></app-rimozione>

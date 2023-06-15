@@ -25,7 +25,6 @@ import { RisultatoResetComponent } from './risultato-reset/risultato-reset.compo
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
   
-
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];
   archivioStart: Archivio;
@@ -33,6 +32,7 @@ export class RicercaComponent implements OnInit {
   valInp:string;
   y:string;
 
+  nominativo: string;
   constructor(private as: ArchivioService) {}
 
   ricercaLibro(valInp:string) {
@@ -55,6 +55,9 @@ export class RicercaComponent implements OnInit {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
             console.log('ramo 1', valInp);
+            /*invio parametro nominativo*/
+            this.nominativo=this.libroTrovato.nominativo;           
+             
           } else {
             this.numeroLibri = this.archivioFinal.length;
             console.log('ramo 2', valInp);
