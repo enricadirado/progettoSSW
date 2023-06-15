@@ -46,7 +46,7 @@ export class RicercaComponent implements OnInit {
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
 
-        if (y != '') {
+        if ((y != '')&&(valInp!='hide')) {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
