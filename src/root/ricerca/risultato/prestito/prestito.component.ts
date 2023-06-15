@@ -35,24 +35,17 @@ export class PrestitoComponent implements OnInit {
         this.archivio2 = archivioStart.archivio.filter((el) =>
         (this.libroTrovato.titolo !== el.titolo || this.libroTrovato.autore !== el.autore ||  this.libroTrovato.posizione !== el.posizione));
         console.log('archivio 2', this.archivio2);
-
         /*creo il libro*/
         let libro: Libro = new Libro(this.libroTrovato.autore, this.libroTrovato.titolo, this.libroTrovato.posizione, nome);
-
         /*converto array in archivio*/
         let archivioMid: Archivio= new Archivio(this.archivio2);
-
         /*aggiungo libro*/
         archivioMid.aggiuntaLibro(libro);
         console.log('mid', archivioMid);
-
         /*converto array in stringa*/
         var archivioFinal = JSON.stringify(archivioMid.archivio);
         console.log('final', archivioFinal);
-
-
         /*setto nuovo valore*/
-
         this.as.setData(archivioFinal).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response);
