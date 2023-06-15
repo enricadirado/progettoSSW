@@ -35,7 +35,7 @@ export class RimozioneComponent implements OnInit {
             console.log(x.response);
             this.rimuoviDocEvent.emit(this.xStr);
             let input: HTMLInputElement = document.getElementById( 'res' ) as HTMLInputElement;
-            input.value=" ";
+            input.value="";
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),

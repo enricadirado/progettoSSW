@@ -19,9 +19,7 @@ export class RootComponent implements OnInit {
   selezione:string= 'home';
   constructor(private as: ArchivioService) {}
 
-  showBook(){
-    
-  }
+  
   ngOnInit() {}
 }
 

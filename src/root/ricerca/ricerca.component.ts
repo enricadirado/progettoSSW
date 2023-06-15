@@ -40,8 +40,9 @@ export class RicercaComponent implements OnInit {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
-
         let y = input.value;
+        console.log('input value: ', y);
+        console.log('input length: ', y.length);
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
@@ -49,7 +50,7 @@ export class RicercaComponent implements OnInit {
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
 
-        if (y != '') {
+        if (y.length>0 && y!='') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
