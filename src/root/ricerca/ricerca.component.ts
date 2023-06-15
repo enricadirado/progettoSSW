@@ -36,9 +36,7 @@ export class RicercaComponent implements OnInit {
     console.log('valInpu su ricerca:', valInp);
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
-        let input: HTMLInputElement = document.getElementById(
-          'res'
-        ) as HTMLInputElement;
+        let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
 
         let y = input.value;
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
@@ -47,18 +45,19 @@ export class RicercaComponent implements OnInit {
         );
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
-        console.log('valInp:', valInp);
 
         if (y != '') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
+            console.log('ramo 1', valInp);
           } else {
             this.numeroLibri = this.archivioFinal.length;
-            valInp='hide';
+            console.log('ramo 2', valInp);
           }
         } else{
-          
+          valInp='hide';
+          console.log('ramo 3', valInp);
           this.libroTrovato = undefined;
           this.numeroLibri = -1;
         }
