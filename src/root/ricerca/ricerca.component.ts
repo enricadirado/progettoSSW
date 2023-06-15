@@ -44,6 +44,7 @@ export class RicercaComponent implements OnInit {
         console.log('input value: ', y);
         console.log('input length: ', y.length);
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
+        console.log('archivio Start', archivioStart);
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
         );
