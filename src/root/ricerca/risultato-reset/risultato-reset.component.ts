@@ -10,12 +10,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RisultatoResetComponent implements OnInit {
   @Input() numeroLibri: number;
-  @Output() removeDocEvent = new EventEmitter<string>();
+  /*@Output() removeDocEvent = new EventEmitter<string>();*/
   constructor() { }
-  x:string='hide';
+  /*x:string='hide';
   removeDoc(x: string) {
     console.log('reset', x);
-  }
+  }*/
   ngOnInit() {
   }
 

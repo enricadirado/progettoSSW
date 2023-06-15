@@ -3,4 +3,5 @@
   <p>{{ libroTrovato.autore }}</p>
   <p>{{ libroTrovato.posizione }}</p>
 </div>
+<app-prestito></app-prestito>
 <app-rimozione [libroTrovato]="libroTrovato" (rimuoviDocEvent)="removeDoc($event)"></app-rimozione>
