@@ -22,18 +22,18 @@ import { RisultatoNulloComponent } from './risultato-nullo/risultato-nullo.compo
 })
 export class RicercaComponent implements OnInit {
   @Input() selezione: string;
-  @Output() ricercaLibroEvent = new EventEmitter<string>();
 
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];
   archivioStart: Archivio;
   libroTrovato: Libro;
-  x:string;
+  valInp:string;
   y:string;
 
   constructor(private as: ArchivioService) {}
 
-  ricercaLibro(x:string) {
+  ricercaLibro(valInp:string) {
+    console.log('valInpu su ricerca:', valInp);
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById(
@@ -46,8 +46,8 @@ export class RicercaComponent implements OnInit {
           (el.titolo + el.autore).toLowerCase().includes(y)
         );
         console.log(archivioStart, 'start type:', typeof archivioStart);
-        console.log(this.archivioFinal,'final type:', typeof this.archivioFinal
-        );
+        console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
+        console.log('valInp:', valInp);
 
         if (y != '') {
           if (this.archivioFinal.length === 1) {
@@ -55,8 +55,10 @@ export class RicercaComponent implements OnInit {
             this.numeroLibri = this.archivioFinal.length;
           } else {
             this.numeroLibri = this.archivioFinal.length;
+            valInp='hide';
           }
-        } else {
+        } else{
+          
           this.libroTrovato = undefined;
           this.numeroLibri = -1;
         }
