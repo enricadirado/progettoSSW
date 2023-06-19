@@ -15,4 +15,7 @@
   <button (click)="cambioView('home')">Chiudi</button>
   <br />
   <br />
+  <app-notifica *ngIf="notifica== 'true'" [notifica]="notifica"></app-notifica>
 </div>
+
+

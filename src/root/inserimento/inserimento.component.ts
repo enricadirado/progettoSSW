@@ -4,23 +4,26 @@ import { ArchivioService } from '../archivio.service';
 import { Libro } from '../libro';
 import { AjaxResponse } from 'rxjs/ajax';
 import { Archivio } from '../archivio';
+import { NotificaComponent } from './notifica/notifica.component';
 
 @Component({
   selector: 'app-inserimento',
   templateUrl: './inserimento.component.html',
   styleUrls: ['./inserimento.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NotificaComponent],
 })
 export class InserimentoComponent implements OnInit {
   @Input() selezione: string;
   @Output() newViewEvent = new EventEmitter<string>();
+  notifica: string;
 
   constructor(private as: ArchivioService) {}
   ngOnInit() {}
   cambioView(name: string) {
     this.selezione = name;
     this.newViewEvent.emit(this.selezione);
+    this.notifica='false';
   }
 
   inserisciDoc() {
@@ -48,6 +51,7 @@ export class InserimentoComponent implements OnInit {
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response);
+            this.notifica='true';
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),
