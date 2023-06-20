@@ -13,9 +13,9 @@ export class Archivio {
     this.archivio.push(nuovoLibro);
   }
 
-  rimozioneLibro(libroPrestito: Libro) {
-    var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
-    this.archivio.splice(indice, 1);
+  rimozioneLibro(libroTrovato: Libro) {
+    this.archivio.filter((el) =>
+    (el.titolo !== libroTrovato.titolo || el.autore !== libroTrovato.autore || el.posizione !== libroTrovato.posizione || el.nominativo !== libroTrovato.nominativo));
   }
 
   prestitoLibro(libroPrestito: Libro, nome:string) {
@@ -29,4 +29,11 @@ export class Archivio {
 /*
 const archivio = db.filter((el) =>
       (el.titolo + el.autore).toLowerCase().includes(btnInput.value));
+*/
+
+/*
+rimozioneLibro(libroPrestito: Libro) {
+    var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
+    this.archivio.splice(indice, 1);
+  }
 */
