@@ -27,17 +27,11 @@ export class InserimentoComponent implements OnInit {
   }
 
   inserisciDoc() {
-    var inputTitolo: HTMLInputElement = document.getElementById(
-      'titolo'
-    ) as HTMLInputElement;
+    var inputTitolo: HTMLInputElement = document.getElementById('titolo') as HTMLInputElement;
     var titolo = inputTitolo.value;
-    var inputAutore: HTMLInputElement = document.getElementById(
-      'autore'
-    ) as HTMLInputElement;
+    var inputAutore: HTMLInputElement = document.getElementById('autore') as HTMLInputElement;
     var autore = inputAutore.value;
-    var inputPosizione: HTMLInputElement = document.getElementById(
-      'posizione'
-    ) as HTMLInputElement;
+    var inputPosizione: HTMLInputElement = document.getElementById('posizione') as HTMLInputElement;
     var posizione = inputPosizione.value;
     let libro: Libro = new Libro(autore, titolo, posizione, 'undefined');
 

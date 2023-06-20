@@ -50,7 +50,6 @@ export class RicercaComponent implements OnInit {
         );
         console.log(archivioStart, 'start type:', typeof archivioStart);
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
-
         if (y.length>0 && y!='') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
@@ -58,7 +57,6 @@ export class RicercaComponent implements OnInit {
             console.log('ramo 1', valInp);
             /*invio parametro nominativo*/
             this.nominativo=this.libroTrovato.nominativo;           
-             
           } else {
             this.numeroLibri = this.archivioFinal.length;
             console.log('ramo 2', valInp);
@@ -69,13 +67,10 @@ export class RicercaComponent implements OnInit {
           this.numeroLibri = -1;
         }
       },
-
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
-    
   }
-
   ngOnInit() {}
 }
 
