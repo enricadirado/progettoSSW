@@ -31,11 +31,10 @@ export class PrestitoComponent implements OnInit {
         let archivio1: Archivio= new Archivio(JSON.parse(x.response));
         console.log('archivio start', archivio1);
 
-        
         archivio1.prestitoLibro(this.libroTrovato, nome);
       
         /*converto array in stringa*/
-        var archivio2 = JSON.stringify(archivio1);
+        var archivio2 = JSON.stringify(archivio1.archivio);
         console.log('final', archivio2);
 
 
