@@ -15,7 +15,11 @@ export class Archivio {
 
   rimozioneLibro() {}
 
-  prestitoLibro() {}
+  prestitoLibro(libroPrestito: Libro, nome:string) {
+    var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
+    
+    this.archivio.splice(indice, 1, )
+  }
 }
 
 
