@@ -36,15 +36,15 @@ export class RicercaComponent implements OnInit {
   constructor(private as: ArchivioService) {}
 
   ricercaLibro(valInp:string) {
-    console.log('valInpu su ricerca:', valInp);
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
         let y = input.value;
+        /*
         console.log('input value: ', y);
         console.log('input length: ', y.length);
+        */
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
-        console.log('archivio Start', archivioStart);
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
         );
