@@ -1,0 +1,9 @@
+#ins2Button:hover{
+  background-color:rgba(133, 195, 110, 0.882);
+  cursor: pointer;
+}
+
+#chiudiButton:hover{
+  background-color:rgba(211, 212, 183, 0.882);
+  cursor: pointer;
+}
