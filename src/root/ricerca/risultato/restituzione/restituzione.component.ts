@@ -17,10 +17,11 @@ export class RestituzioneComponent implements OnInit {
   archivio2: Array<Libro>=[];
   nome: string = "undefined";
   constructor(private as: ArchivioService) {}
+  
   rimuoviName(){
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
-        /*NEW*/
+        
         /*prendo l'archivio*/
         let archivio1: Archivio= new Archivio(JSON.parse(x.response));
         console.log('archivio start', archivio1);
