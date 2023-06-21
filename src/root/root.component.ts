@@ -13,13 +13,15 @@ import { RicercaComponent } from './ricerca/ricerca.component';
 })
 export class RootComponent implements OnInit {
   title: string ="Byblos";
+  selezione:string= 'home';
+  
   cambioView(name:string){
     this.selezione=name;
+    console.log('nomeR', name);
   }
-  selezione:string= 'home';
+  
   constructor(private as: ArchivioService) {}
 
-  
   ngOnInit() {}
 }
 

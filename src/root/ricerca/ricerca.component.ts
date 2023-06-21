@@ -23,7 +23,7 @@ import { RisultatoResetComponent } from './risultato-reset/risultato-reset.compo
   ],
 })
 export class RicercaComponent implements OnInit {
-  @Input() selezione: string;
+  
   
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];

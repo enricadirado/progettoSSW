@@ -1,11 +1,12 @@
 <div id="mainPage">
-  <h1>{{title}}</h1>
+
+  <h1 *ngIf="selezione == 'home'">{{title}}</h1>
 
   <button *ngIf="selezione == 'home'" (click)="cambioView('insert')" id="insButton">Inserisci un volume</button>
 
   <app-inserimento [selezione]="selezione" (newViewEvent)="cambioView($event)"></app-inserimento>
 
-  <app-ricerca *ngIf="selezione == 'home'" [selezione]="selezione"></app-ricerca>
+  <app-ricerca *ngIf="selezione == 'home'"></app-ricerca>
   
 </div>
 

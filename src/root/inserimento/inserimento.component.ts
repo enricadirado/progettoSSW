@@ -17,13 +17,15 @@ export class InserimentoComponent implements OnInit {
   @Input() selezione: string;
   @Output() newViewEvent = new EventEmitter<string>();
   notifica: string;
-
+  
   constructor(private as: ArchivioService) {}
   ngOnInit() {}
   cambioView(name: string) {
     this.selezione = name;
     this.newViewEvent.emit(this.selezione);
+    console.log('nomeI', name);
     this.notifica='false';
+    console.log('notifica', this.notifica);
   }
 
   inserisciDoc() {
