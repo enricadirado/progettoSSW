@@ -23,8 +23,6 @@ import { RisultatoResetComponent } from './risultato-reset/risultato-reset.compo
   ],
 })
 export class RicercaComponent implements OnInit {
-  
-  
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];
   archivioStart: Archivio;
@@ -48,8 +46,8 @@ export class RicercaComponent implements OnInit {
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
         );
-        console.log(archivioStart, 'start type:', typeof archivioStart);
-        console.log(this.archivioFinal,'final type:', typeof this.archivioFinal );
+        console.log(archivioStart, 'start type:', typeof archivioStart); /***/
+        console.log(this.archivioFinal,'final type:', typeof this.archivioFinal ); /***/
         if (y.length>0 && y!='') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
