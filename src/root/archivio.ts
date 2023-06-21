@@ -7,10 +7,8 @@ export class Archivio {
   }
 
   //metodi da applicare su archivio
-  filtraLibro(stringa: string){
-    this.archivio.filter((el) =>
-          (el.titolo + el.autore).toLowerCase().includes(stringa)
-        );
+  filtraLibro(){
+    
   }
 
   aggiuntaLibro(nuovoLibro: Libro) {

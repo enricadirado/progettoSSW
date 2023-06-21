@@ -38,23 +38,16 @@ export class RicercaComponent implements OnInit {
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
         let y = input.value;
-        /*
+        
         console.log('input value: ', y);
         console.log('input length: ', y.length);
-        */
-        let archivioFinal: Archivio = new Archivio(JSON.parse(x.response));
-        /*
-        filter prima
+        
+        let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
-        );*/
-        console.log(archivioFinal, 'start type:'); /***/
-        archivioFinal.filtraLibro(y);
-        console.log(archivioFinal, 'after type:'); /***/
-
-        /*var archivio2 = JSON.stringify(archivio1.archivio);*/
-      
-
+        );
+        console.log(archivioStart, 'start type:', typeof archivioStart); 
+        console.log(this.archivioFinal,'final type:', typeof this.archivioFinal ); 
         if (y.length>0 && y!='') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
