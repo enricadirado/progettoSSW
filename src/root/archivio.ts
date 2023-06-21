@@ -15,11 +15,6 @@ export class Archivio {
     this.archivio.push(nuovoLibro);
   }
 
-  rimozioneLibro(libroTrovato: Libro) {
-    this.archivio.filter((el) =>
-    (el.titolo !== libroTrovato.titolo || el.autore !== libroTrovato.autore || el.posizione !== libroTrovato.posizione || el.nominativo !== libroTrovato.nominativo));
-  }
-
   prestitoLibro(libroPrestito: Libro, nome:string) {
     var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
     let libro: Libro = new Libro(libroPrestito.autore, libroPrestito.titolo, libroPrestito.posizione, nome);
