@@ -23,9 +23,7 @@ export class InserimentoComponent implements OnInit {
   cambioView(name: string) {
     this.selezione = name;
     this.newViewEvent.emit(this.selezione);
-    console.log('nomeI', name);
     this.notifica='false';
-    console.log('notifica', this.notifica);
   }
 
   inserisciDoc() {
