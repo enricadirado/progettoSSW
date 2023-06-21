@@ -7,6 +7,12 @@ h1{
 }
 
 #insButton:hover{
-  background-color:rgba(211, 212, 183, 0.882);
+  background-color:rgb(226, 227, 192);
   cursor: pointer;
 }
+
+
+/*
+
+background-color:rgba(217, 221, 128, 0.882);
+background-color:rgba(228, 231, 176, 0.882);*/
