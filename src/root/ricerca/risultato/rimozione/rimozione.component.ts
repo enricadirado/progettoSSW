@@ -14,10 +14,12 @@ import { AjaxResponse } from 'rxjs/ajax';
 })
 export class RimozioneComponent implements OnInit {
   @Input() libroTrovato: Libro;
+  /*invia una stringa xStr */
   @Output() rimuoviDocEvent = new EventEmitter<string>();
 
   archivioFinal: Array<Libro>=[];
-  xStr: string;
+  /*stringa inviata*/
+  xStr: string ='hide';
 
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
@@ -25,18 +27,16 @@ export class RimozioneComponent implements OnInit {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) =>{
         let archivioStart: Archivio= new Archivio(JSON.parse(x.response));
-
         this.archivioFinal = archivioStart.archivio.filter((el) =>
         (el.titolo !== this.libroTrovato.titolo || el.autore !== this.libroTrovato.autore || el.posizione !== this.libroTrovato.posizione || el.nominativo !== this.libroTrovato.nominativo));
-
-
         var archivio3= JSON.stringify(this.archivioFinal);
-        this.xStr='hide';
-
+      
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
+            /*manda in output xStr */
             this.rimuoviDocEvent.emit(this.xStr);
+            /*pulisce il campo di input per la ricerca*/
             let input: HTMLInputElement = document.getElementById( 'res' ) as HTMLInputElement;
             input.value="";
           },

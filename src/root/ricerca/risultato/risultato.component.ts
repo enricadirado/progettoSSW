@@ -16,8 +16,8 @@ import { RestituzioneComponent } from './restituzione/restituzione.component';
 export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
-  @Input() y: string;
   
+  /*manda la stringa x (hide)*/
   @Output() removeDocEvent = new EventEmitter<string>();
   x: string;
   

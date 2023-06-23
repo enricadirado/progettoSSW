@@ -34,6 +34,7 @@ export class RicercaComponent implements OnInit {
   constructor(private as: ArchivioService) {}
 
   ricercaLibro(valInp:string) {
+    console.log('valInp', valInp);
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
@@ -48,6 +49,7 @@ export class RicercaComponent implements OnInit {
         );
         console.log(archivioStart, 'start type:', typeof archivioStart); 
         console.log(this.archivioFinal,'final type:', typeof this.archivioFinal ); 
+        
         if (y.length>0 && y!='') {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
