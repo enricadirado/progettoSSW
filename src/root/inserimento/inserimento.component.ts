@@ -20,12 +20,16 @@ export class InserimentoComponent implements OnInit {
   
   constructor(private as: ArchivioService) {}
   ngOnInit() {}
+
+  /* metodo invocato sul pulsante 'chiudi' per tornare alla home e per nascondere la notifica di avvenuto inserimento */
+
   cambioView(name: string) {
     this.selezione = name;
     this.newViewEvent.emit(this.selezione);
     this.notifica='false';
   }
 
+  /* metodo per inserire un nuovo documento nella biblioteca */
   inserisciDoc() {
     var inputTitolo: HTMLInputElement = document.getElementById('titolo') as HTMLInputElement;
     var titolo = inputTitolo.value;
@@ -47,7 +51,7 @@ export class InserimentoComponent implements OnInit {
         
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
-            console.log(x.response); /***/
+            console.log(x.response); 
             this.notifica='true';
           },
           error: (err) =>
@@ -57,6 +61,8 @@ export class InserimentoComponent implements OnInit {
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
+
+    /* resetto i valori di input della ricerca */
     inputTitolo.value = '';
     inputAutore.value = '';
     inputPosizione.value = '';
