@@ -7,8 +7,9 @@ export class Archivio {
   }
 
   //metodi da applicare su archivio
-  filtraLibro(){
-    
+  rimozioneLibro(libroPrestito: Libro){
+    var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
+    this.archivio.splice(indice, 1);
   }
 
   aggiuntaLibro(nuovoLibro: Libro) {
