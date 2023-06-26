@@ -17,11 +17,9 @@ export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
   @Output() removeDocEvent = new EventEmitter<void>();
-
   constructor() {}
   removeDoc() {
     this.removeDocEvent.emit();
-    console.log('remove doc');
   }
   ngOnInit() {}
 }
