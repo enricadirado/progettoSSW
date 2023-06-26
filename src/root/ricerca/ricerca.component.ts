@@ -33,8 +33,7 @@ export class RicercaComponent implements OnInit {
   constructor(private as: ArchivioService) {}
   
   /* metodo per cercare un libro */
-  ricercaLibro(valInp:string) {
-    console.log('valInp', valInp);
+  ricercaLibro() {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;

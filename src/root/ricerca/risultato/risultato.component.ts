@@ -16,13 +16,12 @@ import { RestituzioneComponent } from './restituzione/restituzione.component';
 export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
-  @Output() removeDocEvent = new EventEmitter<string>();
-  x: string;
-  
+  @Output() removeDocEvent = new EventEmitter<void>();
+
   constructor() {}
-  removeDoc(x: string) {
-    console.log('send', x);
-    this.removeDocEvent.emit(this.x);
+  removeDoc() {
+    this.removeDocEvent.emit();
+    console.log('remove doc');
   }
   ngOnInit() {}
 }

@@ -14,9 +14,8 @@ import { AjaxResponse } from 'rxjs/ajax';
 })
 export class RimozioneComponent implements OnInit {
   @Input() libroTrovato: Libro;
-  @Output() rimuoviDocEvent = new EventEmitter<string>();
+  @Output() rimuoviDocEvent = new EventEmitter<void>();
   archivioFinal: Array<Libro>=[];
-  xStr: string ='hide';
 
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
@@ -28,7 +27,7 @@ export class RimozioneComponent implements OnInit {
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);
-            this.rimuoviDocEvent.emit(this.xStr);
+            this.rimuoviDocEvent.emit();
             /* resetta il campo di input per la ricerca */
             let input: HTMLInputElement = document.getElementById( 'res' ) as HTMLInputElement;
             input.value="";
