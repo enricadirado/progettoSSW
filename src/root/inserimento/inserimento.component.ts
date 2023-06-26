@@ -27,6 +27,11 @@ export class InserimentoComponent implements OnInit {
     this.notifica='false';
   }
 
+  /* metodo che resetta la notifica di avvenuto inserimento */
+  notificaFalse(){
+    this.notifica='false';
+  }
+
   /* metodo per inserire un nuovo documento nella biblioteca */
   inserisciDoc() {
     var inputTitolo: HTMLInputElement = document.getElementById('titolo') as HTMLInputElement;
@@ -45,6 +50,7 @@ export class InserimentoComponent implements OnInit {
           next: (x: AjaxResponse<any>) => {
             console.log(x.response); 
             this.notifica='true';
+            setTimeout(() => this.notificaFalse(), 2000);
           },
           error: (err) =>
             console.error('Observer got an error: ' + JSON.stringify(err)),
