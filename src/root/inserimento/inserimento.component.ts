@@ -22,11 +22,8 @@ export class InserimentoComponent implements OnInit {
   ngOnInit() {}
 
   /* metodo invocato sul pulsante 'chiudi' per tornare alla home e per nascondere la notifica di avvenuto inserimento */
-
-  cambioView(name: string) {
-    this.selezione = name;
-    console.log('view', name);
-    this.newViewEvent.emit(this.selezione);
+  chiudi() {
+    this.newViewEvent.emit('home');
     this.notifica='false';
   }
 
@@ -39,7 +36,6 @@ export class InserimentoComponent implements OnInit {
     var inputPosizione: HTMLInputElement = document.getElementById('posizione') as HTMLInputElement;
     var posizione = inputPosizione.value;
     let libro: Libro = new Libro(autore, titolo, posizione, 'undefined');
-
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));

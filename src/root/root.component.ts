@@ -20,7 +20,7 @@ export class RootComponent implements OnInit {
     this.selezione=name;
   }
   
-  constructor(private as: ArchivioService) {}
+  constructor() {}
 
   ngOnInit() {}
 }
