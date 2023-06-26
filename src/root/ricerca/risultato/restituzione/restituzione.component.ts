@@ -18,23 +18,14 @@ export class RestituzioneComponent implements OnInit {
   nome: string = "undefined";
   constructor(private as: ArchivioService) {}
   
+  /* metodo per restituire un libro */
   rimuoviName(){
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
-        
-        /*prendo l'archivio*/
         let archivio1: Archivio= new Archivio(JSON.parse(x.response));
-        console.log('archivio start', archivio1);
-
         this.libroTrovato.nominativo=this.nome;
-
         archivio1.prestitoLibro(this.libroTrovato, this.nome);
-  
-        /*converto array in stringa*/
         var archivio2 = JSON.stringify(archivio1.archivio);
-        console.log('final', archivio2);
-
-        /*setto nuovo valore*/
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response);

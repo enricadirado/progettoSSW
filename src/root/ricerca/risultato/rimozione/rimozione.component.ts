@@ -14,21 +14,17 @@ import { AjaxResponse } from 'rxjs/ajax';
 })
 export class RimozioneComponent implements OnInit {
   @Input() libroTrovato: Libro;
-  /* invia una stringa xStr */
   @Output() rimuoviDocEvent = new EventEmitter<string>();
   archivioFinal: Array<Libro>=[];
-  /* stringa inviata */
   xStr: string ='hide';
 
   constructor(private as: ArchivioService) {}
   rimuoviDoc(){
-    console.log('rimozione', this.libroTrovato);
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) =>{
         let archivioStart: Archivio= new Archivio(JSON.parse(x.response));
         archivioStart.rimozioneLibro(this.libroTrovato);
         var archivio3= JSON.stringify(archivioStart.archivio);
-      
         this.as.setData(archivio3).subscribe({
           next: (x: AjaxResponse<any>) =>{
             console.log(x.response);

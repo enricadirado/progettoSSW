@@ -25,6 +25,7 @@ export class InserimentoComponent implements OnInit {
 
   cambioView(name: string) {
     this.selezione = name;
+    console.log('view', name);
     this.newViewEvent.emit(this.selezione);
     this.notifica='false';
   }
@@ -42,13 +43,8 @@ export class InserimentoComponent implements OnInit {
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));
-        console.log(archivio1); /***/
-
         archivio1.aggiuntaLibro(libro);
-
         var archivio2 = JSON.stringify(archivio1.archivio);
-        console.log(archivio2);/***/
-        
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response); 

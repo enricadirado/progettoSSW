@@ -16,8 +16,6 @@ import { RestituzioneComponent } from './restituzione/restituzione.component';
 export class RisultatoComponent implements OnInit {
   @Input() numeroLibri: number;
   @Input() libroTrovato: Libro;
-  
-  /*manda la stringa x (hide)*/
   @Output() removeDocEvent = new EventEmitter<string>();
   x: string;
   
@@ -26,6 +24,5 @@ export class RisultatoComponent implements OnInit {
     console.log('send', x);
     this.removeDocEvent.emit(this.x);
   }
-  
   ngOnInit() {}
 }

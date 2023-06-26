@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-risultato-reset',
@@ -10,12 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RisultatoResetComponent implements OnInit {
   @Input() numeroLibri: number;
-  /*@Output() removeDocEvent = new EventEmitter<string>();*/
   constructor() { }
-  /*x:string='hide';
-  removeDoc(x: string) {
-    console.log('reset', x);
-  }*/
   ngOnInit() {
   }
 

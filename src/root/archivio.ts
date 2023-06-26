@@ -22,16 +22,3 @@ export class Archivio {
     this.archivio.splice(indice, 1, libro);
   }
 }
-
-
-/*
-const archivio = db.filter((el) =>
-      (el.titolo + el.autore).toLowerCase().includes(btnInput.value));
-*/
-
-/*
-rimozioneLibro(libroPrestito: Libro) {
-    var indice= this.archivio.findIndex((el)=>(el.posizione==libroPrestito.posizione));
-    this.archivio.splice(indice, 1);
-  }
-*/

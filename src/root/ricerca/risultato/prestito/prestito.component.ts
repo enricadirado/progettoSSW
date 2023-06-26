@@ -15,30 +15,16 @@ export class PrestitoComponent implements OnInit {
   archivio2: Array<Libro>=[];
   constructor(private as: ArchivioService) { }
   
+  /* metodo per prestare un libro */
   newName(){
-    /*prendo il nome*/
     var input: HTMLInputElement = document.getElementById("nominativoInput") as HTMLInputElement;
     var nome = input.value;
-    console.log(nome);
-
     this.libroTrovato.nominativo=nome;
-    console.log('nuovo nominativo:', this.libroTrovato.nominativo);
-
-    
     this.as.getData().subscribe({
       next: (x: AjaxResponse<any>) => {
-        /*prendo l'archivio*/
         let archivio1: Archivio= new Archivio(JSON.parse(x.response));
-        console.log('archivio start', archivio1);
-
         archivio1.prestitoLibro(this.libroTrovato, nome);
-      
-        /*converto array in stringa*/
         var archivio2 = JSON.stringify(archivio1.archivio);
-        console.log('final', archivio2);
-
-
-        /*setto nuovo valore*/
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response);
@@ -51,10 +37,8 @@ export class PrestitoComponent implements OnInit {
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });
   }
-
   ngOnInit() {
   }
-
 }
 
 
