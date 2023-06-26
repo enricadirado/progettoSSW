@@ -30,7 +30,3 @@ export class ArchivioService {
     });
   }
 }
-
-/*
-URL: string ='https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/get?key=3abb610b';
-*/
