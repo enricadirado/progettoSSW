@@ -21,7 +21,10 @@ import { RisultatoResetComponent } from './risultato-reset/risultato-reset.compo
     RisultatoNulloComponent,
     RisultatoResetComponent
   ],
+  //ci dovrebbe essere providers, perchè il servizio viene fornito (e non importato)
 })
+
+//classe definita con oninit, che significache deve fornire una certa funzionalità, che corrisponde alla funzione che definisce il componente quando viene inizializzato (cosa fa il framework quando crea componente)
 export class RicercaComponent implements OnInit {
   numeroLibri: number;
   archivioFinal: Array<Libro> = [];
@@ -30,14 +33,20 @@ export class RicercaComponent implements OnInit {
   valInp:string;
   y:string;
   nominativo: string;
+  //nel costruttore c'è la dichiarazione del servizio
+    //è un'istanza perchè a è una classe, su cui posso applicare i metodi della classe, come getData
   constructor(private as: ArchivioService) {}
   
   /* metodo per cercare un libro */
   ricercaLibro() {
+    //fa parte delle proprietà dell'oggetto, quindi raggiungibile con this
+    //mi restituisce obs a cui applico subscribe
     this.as.getData().subscribe({
+      //prendo l'ajax response da cui prelevo il campo 'response', in cui c'è un JSON
       next: (x: AjaxResponse<any>) => {
         let input: HTMLInputElement = document.getElementById('res') as HTMLInputElement;
         let y = input.value;
+        //registrata in archivio start
         let archivioStart: Archivio = new Archivio(JSON.parse(x.response));
         this.archivioFinal = archivioStart.archivio.filter((el) =>
           (el.titolo + el.autore).toLowerCase().includes(y)
@@ -57,6 +66,7 @@ export class RicercaComponent implements OnInit {
           this.numeroLibri = -1;
         }
       },
+      //si stampa la versione stringa dell'error
       error: (err) =>
         console.error('Observer got an error: ' + JSON.stringify(err)),
     });

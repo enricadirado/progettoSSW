@@ -16,6 +16,7 @@ export class RootComponent implements OnInit {
   selezione:string= 'home';
 
   /* metodo per cambiare la visualizzazione della pagina principale */
+  //arriva invocazione del metodo cambioView con parametro ''
   cambioView(name:string){
     this.selezione=name;
   }
