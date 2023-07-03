@@ -57,7 +57,7 @@ export class RicercaComponent implements OnInit {
           if (this.archivioFinal.length === 1) {
             this.libroTrovato = this.archivioFinal[0];
             this.numeroLibri = this.archivioFinal.length;
-            this.nominativo=this.libroTrovato.nominativo;           
+                       
           } else {
             this.numeroLibri = this.archivioFinal.length;
           }

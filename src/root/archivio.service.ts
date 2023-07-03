@@ -23,6 +23,7 @@ export class ArchivioService {
   //devo dire cosa c'è nell'obs, quindi definisco il generico, la riposta che ottengo tramite ajax 
   //dentro il response ci sono dei dati, non lo definisco e metto any
   //chiama ajax, ottiene l'obs che fornirà l'ajax response, infatti ha solo return
+  
   public getData(): Observable<AjaxResponse<any>> {
     //metodo ajax definito in angular
     //la {} recchiude un oggetto che ajax mi richiede per lavorare. oggetto aquisito dal metodo ajax 

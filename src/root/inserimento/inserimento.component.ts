@@ -46,6 +46,8 @@ export class InserimentoComponent implements OnInit {
         var archivio1: Archivio = new Archivio(JSON.parse(x.response));
         archivio1.aggiuntaLibro(libro);
         var archivio2 = JSON.stringify(archivio1.archivio);
+        console.log('1', archivio1, Array.isArray(archivio1));
+        console.log('1', archivio2, Array.isArray(archivio2));
         this.as.setData(archivio2).subscribe({
           next: (x: AjaxResponse<any>) => {
             console.log(x.response); 
